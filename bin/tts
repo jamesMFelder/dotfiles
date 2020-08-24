@@ -1,0 +1,4 @@
+#!/bin/bash
+for file; do
+	expand ${file} | sponge ${file}
+done

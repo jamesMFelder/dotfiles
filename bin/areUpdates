@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Start with pacman
+if [[ -n "`~/bin/checkupdates`" ]]; then
+notify-send "Pacman and/or yay updates available" "Please check what updates are available with 'yay -Qu' and update with 'yay -Syu'." -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+fi
+
+#Last, flatpacks
+if [[ -n "`flatpak remote-ls --updates`" ]]; then
+notify-send "Flatpak updates available" "Please check what updates are available with 'flatapk remote-ls --updates' and update with 'flatpak update'." -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+fi
