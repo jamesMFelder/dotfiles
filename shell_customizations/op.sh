@@ -4,5 +4,5 @@ if [[ -f /usr/bin/op ]]; then
 	#Allow rofi to run 1password
 	alias signin='op signin > /home/james/.op/session'
 	#Get my personal acces token for github(not a password)
-	alias pat="op get item 'Git Hub' | jq -r '.details.sections[].fields[] | select(.t==\"Personal Acces Token\").v'"
+	alias pat="op get item 'cvbr24pd22z6wnpzpwnztywmmu' | jq -r '.details.sections[].fields[] | select(.t==\"Personal Acces Token\").v'"
 fi
