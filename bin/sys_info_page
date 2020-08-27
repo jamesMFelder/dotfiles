@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 # Program to output a system information page
 
@@ -6,39 +6,40 @@ PROGNAME=$(basename $0)
 TITLE="System Information Report For $HOSTNAME"
 CURRENT_TIME=$(date +"%x %r %Z")
 TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+FUNC_HEADER=H2
 
-function usage () {
+usage(){
 	echo "$PROGNAME: usage: $PROGNAME [ -f file | -i ]"
-	return
+	return;
 }
 
-function report_uptime () {
+report_uptime(){
 	cat <<- _EOF_
-		<h2>System Uptime</H2>
+		<$FUNC_HEADER>System Uptime</$FUNC_HEADER>
 		<PRE>$(uptime)</PRE>
 		_EOF_
-	return
+	return;
 }
 
-function report_disk_space () {
+report_disk_space(){
 	cat <<- _EOF_
-		<h2>Disk Space Utilization</H2>
+		<$FUNC_HEADER>Disk Space Utilization</$FUNC_HEADER>
 		<PRE>$(df -h 2>/dev/null)</PRE>
 		_EOF_
-	return
+	return;
 }
 
-function report_home_space () {
+report_home_space(){
 	local format="%8s%10s%10s\n"
 	local i dir_list total_files total_dirs total_size user_name
-	if [[ $(id -u) -eq 0 ]]; then
+	if [ "$(id -u)" -eq "0" ]; then
 		dir_list=/home/*
 		user_name="All Users"
 	else
 		dir_list=$HOME
 		user_name=$USER
 	fi
-	echo "<H2>Home Space Utilization ($user_name)</H2>"
+	echo "<$FUNC_HEADER>Home Space Utilization ($user_name)</$FUNC_HEADER>"
 
 	for i in $dir_list; do
 
@@ -52,10 +53,10 @@ function report_home_space () {
 		printf "$format" "$total_dirs" "$total_files" "$total_size"
 		echo "</PRE>"
 	done
-	return
+	return;
 }
 
-function write_html_page () {
+write_html_page(){
 	cat <<- _EOF_
 		<HTML>
 			<HEAD>
@@ -70,14 +71,14 @@ function write_html_page () {
 			</BODY>
 		</HTML>
 		_EOF_
-	return
+	return;
 }
 
 interactive=
 filename=
 
 #Process arguments
-while [[ -n $1 ]]; do
+while [ -n "$1" ]; do
 	case $1 in
 		-f | --file)		shift
 							filename=$1
@@ -95,11 +96,11 @@ while [[ -n $1 ]]; do
 done
 
 #Interactive mode
-if [[ -n "$interactive" ]]; then
+if [ -n "$interactive" ]; then
 	while true; do
 		read -p "Enter name of output file: " filename
-		if [[ -e "$filename" ]]; then
-			read -p "'$filename' exists. Overwrite? [y/n/q] ${PS2:->} "
+		if [ -e "$filename" ]; then
+			read -p "'$filename' exists. Overwrite? [y/n/q] > "
 			case "$REPLY" in
 				Y|y)	break
 						;;
@@ -108,7 +109,7 @@ if [[ -n "$interactive" ]]; then
 				*)		continue
 						;;
 			esac
-		elif [[ -z "$filename" ]]; then
+		elif [ -z "$filename" ]; then
 			continue
 		else
 			break
@@ -118,8 +119,8 @@ fi
 
 #Output the html page
 
-if [[ -n "$filename" ]]; then
-	if touch "$filename" && [[ -f "$filename" ]]; then
+if [ -n "$filename" ]; then
+	if touch "$filename" && [ -f "$filename" ]; then
 		write_html_page > "$filename"
 	else
 		echo "$PROGNAME: Cannot write file '$filename'" >&2
