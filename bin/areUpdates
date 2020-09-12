@@ -1,11 +1,20 @@
 #!/bin/bash
 
-#Start with pacman
-if [[ -n "`~/bin/checkupdates`" ]]; then
-notify-send "Pacman and/or yay updates available" "Please check what updates are available with 'yay -Qu' and update with 'yay -Syu'." -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+#Start with flatpaks because you don't need to be root
+echo "Checking flatpaks"
+if [[ -n "`flatpak remote-ls --updates`" ]]; then
+	title="Flatpak updates available"
+	message="Please check what updates are available with 'flatapk remote-ls --updates' and update with 'flatpak update'."
+	notify-send $title $message -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+	echo $title $message
 fi
 
-#Last, flatpacks
-if [[ -n "`flatpak remote-ls --updates`" ]]; then
-notify-send "Flatpak updates available" "Please check what updates are available with 'flatapk remote-ls --updates' and update with 'flatpak update'." -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+#Last, yay/pacman updates
+echo "Checking pacman and the aur"
+echo "Enter your password to check for pacman updates."
+if [[ -n "`~/bin/checkupdates`" ]]; then
+	title="Pacman and/or yay updates available" 
+	message="Please check what updates are available with 'checkupdates' and update with 'yay -Syu'." 
+	notify-send $title $message -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
+	echo $title $message
 fi

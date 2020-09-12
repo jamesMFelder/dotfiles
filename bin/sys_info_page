@@ -3,7 +3,7 @@
 # Program to output a system information page
 
 PROGNAME=$(basename $0)
-TITLE="System Information Report For $HOSTNAME"
+TITLE="System Information Report For $(cat /etc/hostname)"
 CURRENT_TIME=$(date +"%x %r %Z")
 TIME_STAMP="Generated $CURRENT_TIME, by $USER"
 FUNC_HEADER=H2

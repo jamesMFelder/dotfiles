@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -modi 1pass:rofi-1pass -show 1pass
