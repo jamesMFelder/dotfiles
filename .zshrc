@@ -98,7 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Zplug
-source /usr/share/zplug/init.zsh
+if [ -d "/usr/share/zplug/" ]; then
+	source /usr/share/zplug/init.zsh
+elif [ -d "/usr/share/zsh/scripts/zplug" ]; then
+	source /usr/share/zsh/scripts/zplug/init.zsh
+fi
 # Spaceship theme
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 # Customize spaceship
