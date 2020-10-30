@@ -1,4 +1,5 @@
 #!/bin/bash
+#Convert tabs to spaces
 for file; do
 	expand ${file} | sponge ${file}
 done

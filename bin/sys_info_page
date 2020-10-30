@@ -1,8 +1,8 @@
-#!/bin/dash
+#!/bin/sh
 
 # Program to output a system information page
 
-PROGNAME=$(basename $0)
+PROGNAME=$(basename "$0")
 TITLE="System Information Report For $(cat /etc/hostname)"
 CURRENT_TIME=$(date +"%x %r %Z")
 TIME_STAMP="Generated $CURRENT_TIME, by $USER"
@@ -43,9 +43,9 @@ report_home_space(){
 
 	for i in $dir_list; do
 
-		total_files=$(find $i -type f | wc -l)
-		total_dirs=$(find $i -type d | wc -l)
-		total_size=$(du -sh $i | cut -f 1)
+		total_files=$(find "$i" -type f | wc -l)
+		total_dirs=$(find "$i" -type d | wc -l)
+		total_size=$(du -sh "$i" | cut -f 1)
 		echo "<H3>$i</H3>"
 		echo "<PRE>"
 		printf "$format" "Dirs" "Files" "Size"

@@ -11,4 +11,4 @@ alias la='ls -A'
 #show everything long format
 alias lla='ls -l -a'
 #just to get a laugh when I mistype (requires the sl package)
-which sl &>/dev/null && alias sl='sl -alFc'
+which sl >/dev/null 2>&1 && alias sl='sl -alFc'

@@ -1,0 +1,5 @@
+#!/bin/bash
+#Convert spaces to tabs
+for file; do
+	unexpand ${file} | sponge ${file}
+done
