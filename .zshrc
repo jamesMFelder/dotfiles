@@ -61,7 +61,7 @@ export ZSH="/home/james/ohmyzsh"
  HIST_STAMPS="yyyy/mm/dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
- ZSH_CUSTOM=/home/james/shell_customizations
+ ZSH_CUSTOM=/home/james/dotfiles/shell_customizations
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
