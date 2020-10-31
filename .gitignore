@@ -1,2 +1,4 @@
 #Don't sync temporary files from vim
 *~
+#This path is based on how the machine is set up in the first place
+shell_customizations/path.sh
