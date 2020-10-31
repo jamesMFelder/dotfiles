@@ -44,15 +44,15 @@ echo "PATH=${CREATE_BIN_LOCATION:-${PREFIX}/dotfiles/bin}:\$PATH" >> "${PREFIX}/
 #Bash
 [ -f "$HOME/.bash_aliases" ] && mv -i "$HOME/.bash_aliases" "$HOME/.bash_aliases.bak" && printf "Moved %s to %s...\
 	Make sure your .bashrc sources $HOME/.bash_aliases\n" "$HOME/.bash_aliases" "$HOME/.bash_aliases.bak"
-ln -s "$HOME/.bash_aliases" "${PREFIX}/dotfiles/.bash_aliases"
+ln -s "${PREFIX}/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
 printf "Linked %s to ...\n" "$HOME/.bash_aliases" "${PREFIX}/dotfiles/.bash_aliases"
 #Zsh
 [ -f "$HOME/.zshrc" ] && mv -i "$HOME/.zshrc" "$HOME/.zshrc.bak" && printf "Moved %s to %s...\n" "$HOME/.zshrc" "$HOME/.zshrc.bak"
-ln -s "$HOME/.zshrc" "${PREFIX}/dotfiles/.zshrc"
+ln -s "${PREFIX}/dotfiles/.zshrc" "$HOME/.zshrc"
 printf "Linked %s to %s...\n" "$HOME/.zshrc" "${PREFIX}/dotfiles/.zshrc"
 #Inputrc
 [ -f "$HOME/.inputrc" ] && mv -i "$HOME/.inputrc" "$HOME/.inputrc.bak" && printf "Moved %s to %s...\n" "$HOME/.inputrc" "$HOME/.inputrc.bak"
-ln -s "$HOME/.inputrc" "${PREFIX}/dotfiles/.inputrc"
+ln -s "${PREFIX}/dotfiles/.inputrc" "$HOME/.inputrc"
 printf "Linked %s to %s...\n" "$HOME/.inputrc" "${PREFIX}/dotfiles/.inputrc"
 
 #Goodby message
