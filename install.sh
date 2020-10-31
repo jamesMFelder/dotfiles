@@ -32,7 +32,7 @@ if [ -n "$CREATE_BIN_LOCATION" ]; then
 		If you don't want to use it create a dummy file in there" 1
 	fi
 	#We can link in
-	ln -s "$CREATE_BIN_LOCATION" "$HOME/dotfiles/bin"
+	ln -s "$HOME/dotfiles/bin" "$CREATE_BIN_LOCATION"
 	printf "Linked %s to %s...\n" "$CREATE_BIN_LOCATION" "${PREFIX}/dotfiles/bin"
 fi
 
