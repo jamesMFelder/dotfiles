@@ -50,11 +50,6 @@ printf "Linked %s to ...\n" "$HOME/.bash_aliases" "${PREFIX}/dotfiles/.bash_alia
 [ -f "$HOME/.zshrc" ] && mv -i "$HOME/.zshrc" "$HOME/.zshrc.bak" && printf "Moved %s to %s...\n" "$HOME/.zshrc" "$HOME/.zshrc.bak"
 ln -s "${PREFIX}/dotfiles/.zshrc" "$HOME/.zshrc"
 printf "Linked %s to %s...\n" "$HOME/.zshrc" "${PREFIX}/dotfiles/.zshrc"
-#Dash
-[ -f "$HOME/.dashrc" ] && mv -i "$HOME/.dashrc" "$HOME/.dashrc.bak" && printf "Moved %s to %s...\n" "$HOME/.dashrc" "$HOME/.dashrc.bak"
-ln -s "${PREFIX}/dotfiles/.dashrc" "$HOME/.dashrc"
-printf "Linked %s to %s...\n" "$HOME/.dashrc" "${PREFIX}/dotfiles/.dashrc"
-printf "Remember to add '%s' to your $HOME/.profile" "export ENV=$HOME/.dashrc"
 #Inputrc
 [ -f "$HOME/.inputrc" ] && mv -i "$HOME/.inputrc" "$HOME/.inputrc.bak" && printf "Moved %s to %s...\n" "$HOME/.inputrc" "$HOME/.inputrc.bak"
 ln -s "${PREFIX}/dotfiles/.inputrc" "$HOME/.inputrc"
