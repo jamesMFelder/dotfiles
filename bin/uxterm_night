@@ -1,0 +1,10 @@
+#Is it daytime
+if [[ $(( $(date +%H) >6 )) == 1 && $(( $(date +%H) <18 )) == 1 ]]; then
+#Regular uxterm
+	args="-bg white -fg black"
+else
+#Dark background
+	args="-bg black -fg white"
+fi
+#Run it with any arguments we were passed
+uxterm $args "$@"
