@@ -2,3 +2,5 @@
 *~
 #This path is based on how the machine is set up in the first place
 shell_customizations/path.sh
+#This needs to be recompiled from src/ascii_table.c on each new platform
+bin/ascii_table

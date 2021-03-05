@@ -2,9 +2,9 @@
 CURRENT_SHELL=$(awk -F/ '{gsub("-","");gsub("\0","");print $NF}' < /proc/$$/cmdline)
 
 #If I ran it as sh, find out what is really running
-#Use "$CURRENT_SHELL"x to disable a warning about a null byte
 if [ "$CURRENT_SHELL" = "sh" ]; then
-	CURRENT_SHELL=$(readlink /bin/sh)
+	#Use which in case it is something like /usr/local/bin/sh
+	CURRENT_SHELL=$(readlink $(which sh))
 fi
 
 #Export it.

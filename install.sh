@@ -60,6 +60,9 @@ printf "Remember to add '%s' to your $HOME/.profile" "ENV=$HOME/.dashrc"
 ln -s "${PREFIX}/dotfiles/.inputrc" "$HOME/.inputrc"
 printf "Linked %s to %s...\n" "$HOME/.inputrc" "${PREFIX}/dotfiles/.inputrc"
 
+#Compile programs in src
+gcc -o $HOME/dotfiles/bin/ascii_table $HOME/dotfiles/src/ascii_table.c
+
 #Goodby message
 printf "All done!\
 	Remember to go into %s and run 'git pull' every now and then or create a cron job to do this.\n" "${PREFIX}/dotfiles"

@@ -1,4 +1,4 @@
-if [ -f /usr/bin/op ]; then
+if [ -f `which op` ]; then
 	#Add 1password(op) completion to bash. Read 'op help completion' for changing to another shell.
 	if [ "$CURRENT_SHELL" = "bash" ]; then
 		#Stop shellcheck from complaining that it can't verify the "file"
