@@ -1,3 +1,4 @@
+#!/bin/bash
 #Is it daytime
 if [[ $(( $(date +%H) >6 )) == 1 && $(( $(date +%H) <18 )) == 1 ]]; then
 #Regular uxterm

@@ -1,3 +1,4 @@
+#I'm sorry but I just can't
 if [ "$CURRENT_SHELL" = "dash" ]; then
 	return 0
 fi

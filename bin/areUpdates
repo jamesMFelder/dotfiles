@@ -2,7 +2,7 @@
 
 #Start with flatpaks because you don't need to be root
 echo "Checking flatpaks"
-if [ -n "$(flatpak remote-ls --updates)" ]; then
+if [ -n "`flatpak remote-ls --updates`" ]; then
 	title="Flatpak updates available"
 	message="Please check what updates are available with 'flatapk remote-ls --updates' and update with 'flatpak update'."
 	notify-send "$title" "$message" -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg
@@ -12,7 +12,7 @@ fi
 #Last, yay/pacman updates
 echo "Checking pacman and the aur"
 echo "Enter your password to check for pacman updates."
-if [ -n "$(~/bin/checkupdates)" ]; then
+if [ -n "`~/bin/checkupdates`" ]; then
 	title="Pacman and/or yay updates available" 
 	message="Please check what updates are available with 'checkupdates' and update with 'yay -Syu'." 
 	notify-send "$title" "$message" -i file:///usr/share/icons/Adwaita/scalable/status/software-update-available-symbolic.svg

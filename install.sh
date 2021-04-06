@@ -62,6 +62,16 @@ printf "Linked %s to %s...\n" "$HOME/.inputrc" "${PREFIX}/dotfiles/.inputrc"
 
 #Compile programs in src
 gcc -o $HOME/dotfiles/bin/ascii_table $HOME/dotfiles/src/ascii_table.c
+gcc -o $HOME/dotfiles/bin/sizes $HOME/dotfiles/src/sizes.c
+
+#Allow the use of bat(cat) on Debian and non-debian systems.
+if [[ -f "$(which batcat)" ]]; then #We are on debian
+	BAT=batcat
+else
+	BAT=bat
+fi
+#Unfortunatly this requires a change that will never be commited.
+find . -type f -exec sed -i "s/bat /$BAT /g" {} \+
 
 #Goodby message
 printf "All done!\
