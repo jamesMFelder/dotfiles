@@ -1,4 +1,4 @@
-#define PRINT_SIZE(size) printf("\"%s\": \"%d\"%c\n", #size, sizeof(size), eolc)
+#define PRINT_SIZE(size) printf("\"%s\": \"%ld\"%c\n", #size, sizeof(size), eolc)
 #define NL printf("\n")
 #include <stdio.h>
 #include <stddef.h>
@@ -42,7 +42,7 @@ int main(int argc, char **argv){
 	NL;
 	PRINT_SIZE(timer_t);
 	NL;
-	printf("\"%s\": \"%d\"%c\n", "void*", sizeof(void*), ','==eolc?' ':eolc);
+	printf("\"%s\": \"%ld\"%c\n", "void*", sizeof(void*), ','==eolc?' ':eolc);
 	if(argc>1){if(!strcmp(argv[1], "--json")){printf("}\n");}}
 	return 0;
 }
