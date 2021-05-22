@@ -1,8 +1,8 @@
 alias grep='grep --color=auto'
 alias gh='history | grep'
 cros (){
-grep -i "$1" /usr/share/dict/* | column
+grep -i "$1" /usr/share/dict/* | sort -u | column
 }
 ros (){
-grep -i "$1" /usr/share/dict/*
+grep -i "$1" /usr/share/dict/* | sort -u
 }
