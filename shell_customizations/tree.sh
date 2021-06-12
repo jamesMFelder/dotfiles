@@ -1,2 +1,2 @@
 #Set the tree command to show color
-alias tree='tree -C'
+which tree >/dev/null 2>&1 && alias tree='tree -C'

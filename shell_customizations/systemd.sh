@@ -1,4 +1,5 @@
 #I'm sorry but I just can't
+#This also probably fails in zsh
 if [ "$CURRENT_SHELL" = "dash" ]; then
 	return 0
 fi

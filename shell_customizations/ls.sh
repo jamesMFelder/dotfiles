@@ -8,5 +8,7 @@ alias ll='ls -l'
 alias la='ls -A'
 #show everything long format
 alias lla='ls -l -a'
+#show a directory in long format
+alias lld='ls -ld'
 #just to get a laugh when I mistype (requires the sl package)
 which sl >/dev/null 2>&1 && alias sl='sl -alFe'

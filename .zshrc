@@ -1,8 +1,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' matcher-list '+' '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+r:|[._-/]=* r:|=*' '+'
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle :compinstall filename '/home/james/zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 # Path to your oh-my-zsh installation.
-export ZSH="/home/james/ohmyzsh"
+#export ZSH="/home/james/dotfiles/shell_customizations/"
+
+for file in /home/james/dotfiles/shell_customizations/*; do
+	source $file
+done
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -61,16 +76,16 @@ export ZSH="/home/james/ohmyzsh"
  HIST_STAMPS="yyyy/mm/dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
- ZSH_CUSTOM=/home/james/dotfiles/shell_customizations
+#ZSH_CUSTOM=/home/james/dotfiles/shell_customizations
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -97,18 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# Zplug
-if [ -d "/usr/share/zplug/" ]; then
-	source /usr/share/zplug/init.zsh
-elif [ -d "/usr/share/zsh/scripts/zplug" ]; then
-	source /usr/share/zsh/scripts/zplug/init.zsh
-fi
 # Spaceship theme
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+autoload -U promptinit; promptinit
+prompt spaceship
 # Customize spaceship
 export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_TIME_12HR=true
-# Zplug itself
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-# Load all the plugins
-zplug load
