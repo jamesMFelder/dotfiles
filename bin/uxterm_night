@@ -7,5 +7,5 @@ else
 #Dark background
 	args="-bg black -fg white"
 fi
-#Run it with any arguments we were passed
-uxterm $args "$@"
+#Run it with any arguments we were passed and vi340 so lsix works
+uxterm -ti vt340 $args "$@"
