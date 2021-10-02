@@ -4,7 +4,7 @@ $include /etc/inputrc
 #Don't beep at me
 set bell-style none
 
-#Because this could be cool
+#Because this is cool
 set colored-completion-prefix on
 
 #Do a case-insensitive filename completion
@@ -13,7 +13,10 @@ set completion-ignore-case on
 #Allow a hyphen(-) to complete as an underscore(_) means not pressing shift
 set completion-map-case on
 
-#I will regret this, but set editing mode to vi
+#Don't store edited lines in history
+set revert-all-at-newline on
+
+#Set editing mode to vi
 set editing-mode vi
 
 #My one regret about vi mode
@@ -22,10 +25,14 @@ $if mode=vi
 	set keymap vi-command
 	# these are for vi-command mode
 	Control-l: clear-screen
+	# alt+l / esc+l
+	"\el": clear-screen
 
 	set keymap vi-insert
 	# these are for vi-insert mode
 	Control-l: clear-screen
+	# alt+l / esc+l
+	"\el": clear-screen
 
 	# show (cmd) or (ins) at the beginning of the prompt
 	# also have a blinking bar '|' in insert mode and a solid block '█'

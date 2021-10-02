@@ -2,9 +2,9 @@
 
 int main(){
 	int i, j;
-	printf(" ");
+	printf("   ");
 	for(i=0;i<10;i++){
-		printf(" %d", i);
+		printf("%2d", i);
 	}
 	printf("\n");
 	for(i=0;i<10;i++){
@@ -12,7 +12,7 @@ int main(){
 	}
 	printf("\n");
 	for(i=0;i<13;i++){
-		printf("%d|", i);
+		printf("%2d|", i);
 		for(j=0;j<10;j++){
 			printf(" %c", i*10+j);
 		}

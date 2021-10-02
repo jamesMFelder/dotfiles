@@ -45,11 +45,11 @@
 - source command-not-found files (if installed)
 - disk\_space (lsblk only with info on size, available...)
 - ros and cros (grep for word in dictionaries) (cROSword and Column cROSword)
-- explore (open current directory in file manager
-- stats (show most popular package in Archlinux in json)
+- explore (open current directory in file manager)
 - rpi\_rev (show Raspberry Pi version
 - find\_hang (requires systemd, list services in critical-chain that were slow)
 - screen\_splash (run from tty, fills it with random colors)
 - gui (calls find\_hang -d, screen\_splash and startx)
 - turns off ^S and ^Q blocking/restoring output
+- Vinfo (browse info docs/man pages from vim, the program runs vim in this mode)
 - zoom\_meeting\_info (returns meeting id + password from link(s) on stdin)
