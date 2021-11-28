@@ -1,6 +1,6 @@
 #!/bin/bash
 #Is it daytime
-if [[ $(( $(date +%H) >6 )) == 1 && $(( $(date +%H) <18 )) == 1 ]]; then
+if [[ $(( $(date +%H | sed 's/0//') >6 )) == 1 && $(( $(date +%H | sed 's/09/9/') <18 )) == 1 ]]; then
 #Regular uxterm
 	args="-bg white -fg black"
 else
