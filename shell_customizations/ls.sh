@@ -10,5 +10,7 @@ alias la='ls -A'
 alias lla='ls -l -a'
 #show a directory in long format
 alias lld='ls -ld'
+#show a nonexistent target of a symlink with a red background
+export LS_COLORS="mi=30;41;02"
 #just to get a laugh when I mistype (requires the sl package)
 which sl >/dev/null 2>&1 && alias sl='sl -alFe'
