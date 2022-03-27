@@ -5,7 +5,6 @@
 - GNU Coreutils
 - Python3
 - Awk
-- bat (provides the program batcat on Debian)
 
 ### Optional
 - Zsh
@@ -16,6 +15,7 @@
 - pulseaudio (override beep command)
 
 ### Commands I provide usefull aliases for
+- cflow (callgraph\_project finds all the c and c++ files and pipes them to this command)
 - ddgr (-x to expand urls)
 - git (gac to auto add and commit)
 - grep (gh pipes history to grep)
