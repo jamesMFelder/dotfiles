@@ -1,8 +1,3 @@
-#I'm sorry but I just can't
-#This also probably fails in zsh
-if [ "$CURRENT_SHELL" = "dash" ]; then
-	return 0
-fi
 #List systemd services in the critical chain that are taking a while
 find_hang(){
 	#If no arguments, just do a simple one in the terminal
