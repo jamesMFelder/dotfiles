@@ -1,1 +1,1 @@
-alias disassemble='objdump -CwSMintel --visualize-jumps=extended-color'
+alias disassemble='objdump -C -w -d -S -l --visualize-jumps=color --disassembler-color=color'
