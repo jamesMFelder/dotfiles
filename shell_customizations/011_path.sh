@@ -49,5 +49,6 @@ export ${func_export?} pathremove pathprepend pathappend pathclean
 
 pathprepend /home/james/bin
 pathprepend /home/james/.local/bin
-pathappend /home/james/.cargo/bin
+pathprepend /home/james/.cargo/bin
+[ -d /usr/lib/llvm-15/bin ] && pathappend /usr/lib/llvm-15/bin
 pathclean

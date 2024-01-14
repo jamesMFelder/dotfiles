@@ -1,9 +1,13 @@
-which vim >/dev/null 2>&1 && alias vi='vim'
+which nvim >/dev/null 2>&1 && alias vi='nvim'
 #Open readonly
-which vim >/dev/null 2>&1 && alias view='vim -R'
+which nvim >/dev/null 2>&1 && alias view='nvim -R'
 #Others should change this
-if which vim >/dev/null 2>&1; then
+if which nvim >/dev/null 2>&1; then
+export EDITOR=nvim
+elif which vim >/dev/null 2>&1; then
 export EDITOR=vim
+elif which kak >/dev/null 2>&1; then
+export EDITOR=kak
 else
 export EDITOR=vi
 fi

@@ -15,7 +15,8 @@ function needsrestart() {
 	#shellcheck disable=2016 # we actually don't want to expand the command within the sed expression until we have the correct arguments for it
 	grep -F '(deleted)' /proc/*/maps 2>/dev/null | # Get the processes
 		awk '{print $1,$6}' | sed 's/:.* / /' | # Filter the output to only get "/proc/$pid/maps $file"
-		grep -v '/memfd\|/SYSV\|/dev/shm' | # Ignore false positives (non-files)
+		grep -v '/memfd\|/SYSV\|/dev/shm\|.cache' | # Ignore false positives (non-files, updated cache files)
 		sed 's@/proc/\([[:digit:]]\+\)/maps \(.*\)@/proc/\1/cmdline \2@' | # We care about the /proc/pid/cmdline, not /proc/pid/maps
-		print_pid_and_file # Actually print everything
+		print_pid_and_file | # Actually print everything
+		uniq # Get rid of lots of duplicates
 }
