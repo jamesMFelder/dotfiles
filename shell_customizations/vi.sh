@@ -2,7 +2,9 @@ which nvim >/dev/null 2>&1 && alias vi='nvim'
 #Open readonly
 which nvim >/dev/null 2>&1 && alias view='nvim -R'
 #Others should change this
-if which nvim >/dev/null 2>&1; then
+if which helix >/dev/null 2>&1; then
+export EDITOR=helix
+elif which nvim >/dev/null 2>&1; then
 export EDITOR=nvim
 elif which vim >/dev/null 2>&1; then
 export EDITOR=vim
@@ -56,4 +58,4 @@ function _vi() {
   return 0
 }
 
-complete -F _vi vi vim nvim
+complete -F _vi vi vim nvim helix
